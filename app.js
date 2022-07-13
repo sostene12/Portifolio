@@ -33,3 +33,14 @@ allSections.addEventListener("click", (e) => {
   const element = document.getElementById(id);
   element.classList.add("active");
 });
+
+// progress width
+const progressText = document.querySelectorAll(".prog-text");
+const progress = document.querySelectorAll(".progress span");
+for (let i = 0; i < progress.length; i++) {
+  for (let j = 0; j < progressText.length; j++) {
+    if (i == j) {
+      progress[i].style.width = progressText[j].innerText;
+    }
+  }
+}
