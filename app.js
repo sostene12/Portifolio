@@ -44,3 +44,31 @@ for (let i = 0; i < progress.length; i++) {
     }
   }
 }
+
+// sending the email
+
+const service_Id = "service_sel1eer";
+const template_Id = "template_trple76";
+const public_Key = "2ZP0r2TT8PEBncwql";
+
+(function () {
+  emailjs.init(public_Key);
+})();
+
+const contact = document.getElementById("contact-form");
+contact.addEventListener("submit", function (e) {
+  e.preventDefault();
+  const template = {
+    name: "hereba",
+    email: "herena@gmail.com",
+    message: "hello i like your services",
+  };
+  emailjs
+    .sendForm(service_Id, template_Id, this)
+    .then((res) => {
+      console.log("success", res.status, res.json);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
